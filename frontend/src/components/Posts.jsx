@@ -1,5 +1,5 @@
 import React from "react";
-import { array } from "../data";
+import array from "../data";
 import Post from "./Post";
 
 function Posts() {
