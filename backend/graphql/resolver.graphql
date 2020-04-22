@@ -1,0 +1,8 @@
+module.exports = {
+  rawdata() {
+    return {
+      title: "Hello World!",
+      text: "Hello you",
+    };
+  },
+};
