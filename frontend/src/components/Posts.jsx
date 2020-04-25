@@ -13,19 +13,24 @@ function Posts() {
     }
   ]);
 
-  // useEffect(() => {
-  //   async function getPosts() {
-  //     const res = await axios.get("/");
-  //     setPostArray(res.data);
-  //   }
-  //   getPosts();
-  // }, []);
+  useEffect(() => {
+  
+    async function getPosts() {
+      try{
+      const res = await axios.get("/data");
+      setPostArray(res.data);
+      console.log(res);
+    }catch(err){
+      console.log(err);
+    }}
+    getPosts();
+  }, []);
 
 
   return (
     <div className="container-fluid p-0 row m-0 justify-content-center text-center">
       {postArray.map((item) => {
-        return <Post title={item.title} content={item.content} bcolor={item.color} date={item.date}/>;
+        return <Post title={item.title} content={item.content} bcolor={item.color} date={item.date} image={item.image}/>;
       })}
     </div>
   );
