@@ -27,7 +27,7 @@ function Compose() {
             placeHolder="put your title"
             name="title"
           ></input>
-          <Label for="content">Title</Label>
+          <Label for="content">Content</Label>
           <textarea
             className="form-control"
             rows="10"

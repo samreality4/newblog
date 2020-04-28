@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Paper, Collapse } from "@material-ui/core";
+import { Paper, Collapse, Divider } from "@material-ui/core";
 
 function Post(props) {
   const [elevation, setElevation] = useState();
   const [clickState, setClickState] = useState(false);
 
   function onMouseEnter() {
-    setElevation(10);
+    setElevation(15);
   }
 
   function onMouseLeave() {
@@ -17,21 +17,29 @@ function Post(props) {
     setClickState(!clickState);
   }
 
-console.log(props.bcolor);
+  console.log(props.bcolor);
 
   return (
     <Paper
       className="m-3 p-2 text-left"
       elevation={elevation}
-      style={{ width: "75%", backgroundColor: props.bcolor }}
+      style={{ width: "65%", color: "black", background: props.bcolor }}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <h2>{new Date(props.date).toLocaleDateString("en-US")}</h2>
+      <div>
       <h2>{props.title}</h2>
+      <h3>{new Date(props.date).toLocaleDateString("en-US")}</h3>
+      </div>
       <Collapse in={clickState}>
-        <img src={props.image}></img>
+        <Divider />
+        <div className="text-center">
+        <img
+          className="img-fluid"
+          src={props.image}
+        /></div>
+        <Divider />
         <p>{props.content}</p>
       </Collapse>
     </Paper>

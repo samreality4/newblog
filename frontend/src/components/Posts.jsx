@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
-import array from "../data";
 import Post from "./Post";
 import axios from "axios";
 
 function Posts() {
   const [postArray, setPostArray] = useState([
     {
-      title: "",
-      content: "",
-      color: "",
-      date: "",
+      date: "Loading"
     }
   ]);
 

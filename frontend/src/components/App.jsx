@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar";
-import Posts from "./Posts";
+import Home from "./Home";
+import About from "./About";
 import Compose from "./Compose";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -12,8 +13,12 @@ function App() {
         <Switch>
           <Route exact path="/"
           render={()=>(
-            <Posts />
+            <Home />
           )}/>
+           <Route exact path="/About"
+         render={()=> (
+      <About />)
+         }/>
          <Route exact path="/Compose"
          render={()=> (
       <Compose />)

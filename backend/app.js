@@ -33,24 +33,22 @@ const postSchema = new mongoose.Schema({
 
 const Post = mongoose.model("Post", postSchema);
 
-
 app.get("/data", (req, res) => {
-  Post.find({}, function (err, posts) {
+  Post.find({}, null, { sort: "-date" }, (err, posts) => {
     if (err) {
       console.log(err);
     } else {
-    
       res.send(posts);
     }
   });
 });
 
 app.get("/posts/:id", (req, res) => {
-  Post.findById({ _id: req.params.id }, function (err, post) {
-    if(err){
+  Post.findById({ _id: req.params.id }, (err, post) => {
+    if (err) {
       console.log(err);
-    } else{
-    res.send(post);
+    } else {
+      res.send(post);
     }
   });
 });
@@ -61,7 +59,7 @@ app.post("/compose", (req, res) => {
     content: req.body.content,
     color: req.body.color,
     date: req.body.date,
-    image: req.body.image
+    image: req.body.image,
   });
 
   newPost.save((err) => {
