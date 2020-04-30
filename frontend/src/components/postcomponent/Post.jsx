@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Paper, Collapse, Divider } from "@material-ui/core";
+import { Paper, Collapse, Grow, Divider } from "@material-ui/core";
 
 function Post(props) {
   const [elevation, setElevation] = useState();
@@ -17,13 +17,12 @@ function Post(props) {
     setClickState(!clickState);
   }
 
-  console.log(props.bcolor);
-
   return (
+<Grow in={true} timeout={{appear: 1000, enter: 1000, exit: 1000}}>
     <Paper
       className="m-3 p-2 text-left"
       elevation={elevation}
-      style={{ width: "65%", color: "black", background: props.bcolor }}
+      style={{ width: "65%", color: "black", background: props.bcolor, boxShadow:"white" }}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -38,11 +37,13 @@ function Post(props) {
         <img
           className="img-fluid"
           src={props.image}
+          alt="post picture"
         /></div>
         <Divider />
         <p>{props.content}</p>
       </Collapse>
     </Paper>
+    </Grow>
   );
 }
 

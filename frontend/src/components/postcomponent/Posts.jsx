@@ -5,7 +5,8 @@ import axios from "axios";
 function Posts() {
   const [postArray, setPostArray] = useState([
     {
-      date: "Loading"
+      date: "12/24/2021",
+      color: "linear-gradient(48deg, rgba(63,180,251,1) 18%, rgba(164,122,21,1) 87%)" 
     }
   ]);
 
@@ -25,8 +26,8 @@ function Posts() {
 
   return (
     <div className="container-fluid p-0 row m-0 justify-content-center text-center">
-      {postArray.map((item) => {
-        return <Post title={item.title} content={item.content} bcolor={item.color} date={item.date} image={item.image}/>;
+      {postArray.map((item, index) => {
+        return <Post id={item._id} title={item.title} content={item.content} bcolor={item.color} date={item.date} image={item.image} index={index} />;
       })}
     </div>
   );

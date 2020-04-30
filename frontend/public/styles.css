@@ -1,3 +1,20 @@
+html{
+    height: 100%;
+}
+
+body{
+    background: linear-gradient(90deg, rgba(63,180,251,1) 12%, rgba(21,74,164,1) 64%, rgba(164,21,21,1) 100%);
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
 h1, h2, h3, p {
     font-family: 'Zilla Slab', serif;
+    color: white;
 }
+
+* {
+    box-sizing: border-box;
+  }
+  
+ 
