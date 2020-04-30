@@ -2,14 +2,11 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const lodash = require("lodash");
 const mongoose = require("mongoose");
 
 const app = express();
 
-app.locals._ = lodash;
 app.use(bodyParser.json());
-app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
@@ -39,16 +36,6 @@ app.get("/data", (req, res) => {
       console.log(err);
     } else {
       res.send(posts);
-    }
-  });
-});
-
-app.get("/posts/:id", (req, res) => {
-  Post.findById({ _id: req.params.id }, (err, post) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(post);
     }
   });
 });
